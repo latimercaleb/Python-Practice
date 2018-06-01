@@ -101,13 +101,51 @@ print(vals)
 B = list(vals)
 
 # Loops
+x = 0
+while  x <4 :
+    print ("Shigg")
+    x  +=1
 
+emptyList = []
+while len(emptyList) != 0:
+    wrd = input("Enter some text")
+    emptyList.append(wrd)
+    print(emptyList)
 
+print("3 items in list : {0}".format(emptyList))
+
+# The for loop uses range
+for i in range(1,11):
+    print (i)
+
+for i in "apple":
+    print(i)
 
 #Functions
+def simpleAddFunction(a,b):
+    return("The sum is : {0}".format(a+b))
+def keywordArgEx(name,food):
+    print("My name is  {0} and I like {1}".format(name,food))
+def betterAdd(*sum):
+    total = 0
+    for i in sum:
+        total += i
+    return("The sum is : {0}".format(total))
+def unpackKwargs(name,food):
+    print("My name is  {0} and I like {1}".format(name,food))
+    
+simpleAddFunction(2,2)
+keywordArgEx("Callat", "Tacos")
+keywordArgEx("Tacos","Callat")
+keywordArgEx(name = "Callat", food = "Tacos")
+keywordArgEx( food = "Tacos", name = "Callat")
 
+listTounpack = ["One", "Two", True, 4]
+print(*listTounpack)
+betterAdd(2,2,2)
 
-
+data = {"name": "Callat", "food" : "data"}
+unpackKwargs(**data)
 #OOP
 
 

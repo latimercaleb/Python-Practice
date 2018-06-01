@@ -2,14 +2,13 @@
 # Choose from a range of movies
 # Each movie contains a range of allowed ages to view the film based off a user prompt determine if the user can view the film
 
-# Print values with keys do this l8r
 films = {
     "Terminator" : [17,10],
     "Ice Age": [5,4],
     "Black Panther": [13, 2]
          }
-als = list(films.values())
-while False:
+
+while True:
  
     for i in films:
         print (i)
@@ -21,6 +20,7 @@ while False:
             if  films[prompt][1] > 0:
                 print("Enjoy the show!")
                 films[prompt][1] -= 1
+                print("The {0} showing has {1} tickets remaining".format(prompt, films[prompt][1]))
             else:
                 print("Show is sold out")
         else:
