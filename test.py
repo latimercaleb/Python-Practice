@@ -146,6 +146,17 @@ betterAdd(2,2,2)
 
 data = {"name": "Callat", "food" : "data"}
 unpackKwargs(**data)
+
 #OOP
+
+class Pet:
+    def __init__(self,animalType):
+        self.type = animalType
+    def greet(self):
+        print("Hi my name is {0}.".format(self.type))
+
+t = Pet("Doggo")
+t.greet()
+
 
 
