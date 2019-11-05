@@ -155,4 +155,122 @@ if 2 in membershiptest:
 if -2 not in membershiptest:
     print (-2 not in membershiptest)
 
-# Loops 59:16
+# Loops 
+world = ['Sam','Dean','Castiel','Bobby']
+for hunter in world:
+    print(f'Selected hunter: {hunter}')
+
+# Break stops the loop 
+for hunter in world:
+    if hunter == 'Castiel': 
+        break
+    print(f'Selected hunter: {hunter}')
+
+#Continue skips to the next iteration of the loop
+for hunter in world:
+    if hunter == 'Castiel': 
+        continue
+    print(f'Selected hunter: {hunter}')
+
+# Range 
+for i in range(len(world)):
+    print (world[i])
+
+for i in range(0,11):
+    print (f'Number: {i}')
+
+count = 0
+while count <= 10:
+    print(count)
+    count +=1
+
+# Modules, commonly used in custom setups, Django and pip
+import datetime
+today = datetime.date.today()
+print (today)
+
+# Another way 
+from datetime import date
+today = date.today()
+print (today)
+
+# Time module 
+import time 
+timestamp = time.time()
+print (timestamp)
+
+# Can install other modules using pip
+# Custom modules can also be imported from other files like in JS
+
+# Classes, use self instead of this
+class User:
+    def __init__(self, name, stack):
+        self.name = name
+        self.stack = stack
+    def speak (self):
+        return f'Hi my name is {self.name} & I\'m a {self.stack} user!'
+
+player = User('Lan','MEAN')
+print (type(player))
+print (player.stack, player.name)
+print (player.speak())
+
+# Student class extension
+class Student(User):
+    def __init__(self, name, stack, mana):
+        self.name = name
+        self.stack = stack
+        self.mana = mana
+    def set_mana(self, mana):
+        self.mana = mana
+    def speak (self):
+        return f'Hi my name is {self.name} & I have a mana level of  {self.mana}!'
+
+mage = Student('Gamer Jihan', 'Gaming', 1299)
+print (mage.mana)
+mage.set_mana(1000000)
+print (mage.mana)
+print (mage.speak())
+
+#File operations, Python has alot of support for CRUD with files 
+
+# Opening a file 
+file = open('sample.txt', 'w')
+print ('Name is: ', file.name)
+print ('Is it closed? ', file.closed)
+print ('Opening Mode: ', file.mode)
+
+# Write to the file
+file.write('New stuff?')
+file.write(' Other stuff')
+file.close()
+
+# Append to file 
+file = open('sample.txt', 'a')
+file.write(' One more thing')
+file.close()
+
+# Read from a file 
+file = open('sample.txt', 'r+')
+sentence = file.read(100)
+print (sentence)
+
+# Working with JSON, common thing for APIs to parse JSON into a dictionary
+import json 
+# Test string, try using a real API for this
+userJSON = '{"name":"Test", "skill":"Rest","time":"Now"}'
+
+# Parse to dictionary
+user = json.loads(userJSON)
+print (user)
+print (user['name'])
+
+# Take a dictionary -> JSON 
+car = {
+    'make': 'Chevy',
+    'model': 'Impala',
+    'year': 1990
+}
+
+carJSON = json.dumps(car)
+print (carJSON)
