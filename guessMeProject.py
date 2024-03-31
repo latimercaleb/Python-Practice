@@ -5,7 +5,7 @@
 
 import random
 randNum = random.randint(1,5)
-usrInput = int(input("Inpute a number between 1 and 5: "))
+usrInput = int(input("Input a number between 1 and 5: "))
 
 if randNum == usrInput:
     print("You guessed correct")

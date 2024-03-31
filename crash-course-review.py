@@ -1,5 +1,4 @@
 # Review of python basics, Run files with python3 fileName
-
 # Commenting, done with hash signs or triple quotes
 
 '''
@@ -8,7 +7,6 @@ Multi-line comment, also called docstrings often used to define functions
 
 # Vars are case-senstive and must start with letter or underscore
 # Run python code from terminal with 
-
 x = 1
 y = 3.5
 word = 'A test string'
@@ -44,7 +42,7 @@ othernumbers = list((1,2,3))
 print (numbers, othernumbers)
 print(stuff[1], len(stuff))
 
-#List Operations
+# List Operations
 stuff.append('Tacos')
 print (stuff)
 stuff.remove('AI') ; print (stuff)

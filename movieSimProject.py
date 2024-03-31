@@ -6,7 +6,7 @@ films = {
     "Terminator" : [17,10],
     "Ice Age": [5,4],
     "Black Panther": [13, 2]
-         }
+}
 
 while True:
  

@@ -13,7 +13,7 @@ if not os.path.exists(targetFldr):
 
 zip_cmd = 'zip -r {0} {1}'.format(target,''.join(sourceFldr))
 print (zip_cmd)
-if os.system(zip_cmd) ==0:
+if os.system(zip_cmd) ==  0:
     print("Backed up")
 else:
     print("err")
