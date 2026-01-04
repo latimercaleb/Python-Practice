@@ -1,4 +1,4 @@
-#Draawing with turtle
+#Drawing with turtle
 
 import turtle
 print(turtle.position())

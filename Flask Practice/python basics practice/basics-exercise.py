@@ -1,52 +1,9 @@
-# Quick recap of basic python concepts
-print("hello world")
-print(2+1)
-
-a = 5
-print(a)
-
-# String practice
-b = "i'm a practice string"
-print(b)
-print(len(b))
-print(b[2])
-
-
-c = b.capitalize()
-print(c)
-
-# Start position included, exit position excluded
-d = c[6:14]
-print(d)
-# Can use format or f-string literals
-print("hello {} world".format(d))
-
-# List practice
-free_list=[1,2,3]
-print(free_list)
-print(len(free_list))
-
-mixed_list = [True, 1, 'test']
-print(mixed_list)
-
-mixed_list.append('zero')
-mixed_list.insert(2,'X')
-print(mixed_list)
-
-# Dictionaries
-ex = {'k1': 'value 1', 'k2': 'value 2'}
-print(ex)
-print(ex['k1'])
-ex['k3'] = 150
-print(ex)
-
-
-#####################################
-#### PART 6: EXERCISE REVIEW  #######
-#####################################
-
-# Time to review all the basic data types we learned! This should be a
-# relatively straight-forward and quick assignment.
+# Redo folder structure here, add a new folder for Python Basics (DONE)
+## Clean up and solve all these problems (DONE)
+## Review all old code, gemini whatever you dont understand (DONE)
+## Close up all google links before reviewing
+## Review and continue, perhaps break up further practice into a new script file
+## Delete these comments when done
 
 ###############
 ## Problem 1 ##
@@ -57,17 +14,19 @@ s = 'flask'
 
 # Use indexing to print out the following:
 # 'f'
-
+print('Exercise 1')
+print(s[0])
 # 's'
-
+print(s[3])
 # 'ask'
-
+print(s[2:])
 # 'las'
-
+print(s[1:4])
 # 'k'
-
+print(s[4])
 # Bonus: Use indexing to reverse the string
-
+print(s[-1:-6:-1])
+print(len(s))
 
 ###############
 ## Problem 2 ##
@@ -76,7 +35,9 @@ s = 'flask'
 # Given this nested list:
 mylist = [3,7,[1,4,'hello']]
 # Reassign "hello" to be "goodbye"
-
+mylist[2][2] = 'goodbye'
+print('Exercise 2')
+print(mylist)
 
 ###############
 ## Problem 3 ##
@@ -89,7 +50,10 @@ d1 = {'simple_key':'hello'}
 d2 = {'k1':{'k2':'hello'}}
 
 d3 = {'k1':[{'nest_key':['this is deep',['hello']]}]}
-
+print('Exercise 3')
+print(d1['simple_key'])
+print(d2['k1']['k2'])
+print(d3['k1'][0]['nest_key'][1][0])
 
 ###############
 ## Problem 4 ##
@@ -97,7 +61,8 @@ d3 = {'k1':[{'nest_key':['this is deep',['hello']]}]}
 
 # Use a set to find the unique values of the list below:
 mylist = [1,1,1,1,1,2,2,2,2,3,3,3,3]
-
+print('Exercise 4')
+print(set(mylist))
 
 ###############
 ## Problem 5 ##
@@ -109,3 +74,6 @@ name = "Sammy"
 
 # Use print formatting to print the following string:
 "Hello my dog's name is Sammy and he is 4 years old"
+print('Exercise 5')
+print("Hello my dog's name is {} and he is {} years old".format(name,age))
+print(f"Hello my dog's name is {name} and he is {age} years old")
