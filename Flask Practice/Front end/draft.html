@@ -2,11 +2,15 @@
 <html>
     <head>
         <title>First draft for review</title>
+        <link rel="stylesheet" href="draft.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Header A</h1>
+        <h1 class="classy">Header A</h1>
         <h2>Header B</h2>
-        <h3>Header C</h3>
+        <h3 class="classy">Header C</h3>
         <h4>Header D</h4>
         <h5>Header E</h5>
         <h6>Header F</h6>
@@ -28,25 +32,44 @@
             <a href="https://shinobi.fandom.com/wiki/Shinobi_(2002)"><p>Picture: <img src="https://static.wikia.nocookie.net/shinobisega/images/2/2e/446364-hotsuma_large.png/revision/latest?cb=20120613181219" alt="Shinobi ps2 concept art"></p></a>
         </div>
         <span>
-            <h2>Header B2: Span block</h2>
+            <h2 id="major">Header B2: Span block</h2>
         </span>
 
         <div>
             <h3>Forms</h3>
             <hr/>
-            <form action="draft" method="get">
+            <form method="get">
                 <span>
                     <label for="email">Email</label>
                     <input id="email" type="email" name="email" value="Foo@foo.com"/>
                 </span>
                 <span>
                     <label for="password">Password</label>
-                    <input for="password" type="password" name="password" value="Bar"/>
+                    <input id="password" type="password" name="password" value="Bar"/>
+                </span>
+                <span>
+                    <h4>Do you like games?</h4>
+                    <label for="gamer_yes"> Yes</label>
+                    <input id="gamer_yes" type="radio" name="games_selection" value="Yes"/>
+                    
+                    <label for="gamer_no"> No</label>
+                    <input id="gamer_no" type="radio" name="games_selection" value="No"/>
+                </span>
+                <span>
+                    <h4>Do you rage?</h4>
+                    <select name="rage">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="sometimes">Sometimes</option>
+                    </select>
                 </span>
                 <span>
                     <input type="submit" name="Submit btn" value="Enter"/>
                 </span>
             </form>
         </div>
+        <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis nesciunt perferendis beatae excepturi, ut culpa enim dolore impedit modi accusamus neque sed corrupti id laboriosam itaque officiis dicta unde rerum!</div>
+        <br>
+        <div class="cool-font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto incidunt tempora eligendi hic aspernatur quaerat! Dolorum reiciendis, laboriosam rerum a nisi, tempore magnam ex atque repudiandae veniam blanditiis quam numquam!</div>
     </body>
 </html>
