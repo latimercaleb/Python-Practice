@@ -1,10 +1,3 @@
-# Redo folder structure here, add a new folder for Python Basics (DONE)
-## Clean up and solve all these problems (DONE)
-## Review all old code, gemini whatever you dont understand (DONE)
-## Close up all google links before reviewing
-## Review and continue, perhaps break up further practice into a new script file
-## Delete these comments when done
-
 ###############
 ## Problem 1 ##
 ###############
