@@ -11,7 +11,7 @@ class Acc:
         return ("{0} deposited to account".format(amt))
     
     def  withdraw(self,amt):
-        if(self.Bal - amt < self.Cred):
+        if(self.Bal - amt > self.Cred):
             print  ("Insufficient Funds")
         else:
             self.Bal -= amt
@@ -27,3 +27,10 @@ class Acc:
             self.Bal -= amt
             target.Bal += amt
             return "The new balance is {0}".format(self.Bal)
+
+fund = Acc('X', 70, 80.55)
+fund.showBal()
+print(fund.deposit(303))
+fund.showBal()
+fund.withdraw(1)
+fund.showBal()

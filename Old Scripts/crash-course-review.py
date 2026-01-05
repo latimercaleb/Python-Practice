@@ -5,7 +5,7 @@
 Multi-line comment, also called docstrings often used to define functions
 '''
 
-# Vars are case-senstive and must start with letter or underscore
+# Vars are case-sensitive and must start with letter or underscore
 # Run python code from terminal with 
 x = 1
 y = 3.5
