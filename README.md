@@ -9,3 +9,7 @@ Need to pick up python learning & projects
 - Pick back up with fast api
 - Practice MCP
 - Practice for interviews
+
+### Side tasks
+- Wrap up OOP practice problems
+- Set up flask skeleton
