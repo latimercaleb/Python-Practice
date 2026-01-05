@@ -38,3 +38,14 @@ def test_function1(name="me"):
 
 test_function1()
 test_function1("you")
+
+# Closures
+alpha = "Foo String"
+def wrapper():
+    alpha = "Bar String" # If this is commented it reffs line 43 instead, can use global keyword to refference it directly though its not recommended
+    def inner(): 
+        print(alpha)
+    inner()
+wrapper()
+
+# OOP
