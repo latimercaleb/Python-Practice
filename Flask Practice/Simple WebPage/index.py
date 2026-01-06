@@ -1,9 +1,24 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<h1>Hello Worldo!</h1>'
+    return '<h1>Hello Worrldo!</h1>'
+
+@app.route('/info') # Static route
+def info():
+    return '<h1>Info world!</h1>'
+
+@app.route('/info/<user>') # Dynamic route
+def userInfo(user):
+    return f'<h1>{user} world!</h1>'
+
+@app.route('/infoTemplate') # Static route w/template
+def infoTemplate():
+    someBackendVar = 'foo'
+    someBackendList = list(someBackendVar)
+    someDictionary = {'key': 'val'}
+    return render_template('index.html', vars=someBackendVar, vars2 = someBackendList, vars3 = someDictionary)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
