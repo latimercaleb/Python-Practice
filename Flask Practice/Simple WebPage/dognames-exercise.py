@@ -1,22 +1,24 @@
 # Set up your imports here!
-# import ...
+from flask import Flask, render_template
+app = Flask(__name__)
 
 
-@app.route('') # Fill this in!
-def index():
+
+@app.route('/') # Fill this in!
+def landing():
     # Welcome Page
     # Create a generic welcome page.
-    pass
+    return '<h1>Welcome Page</h1>'
 
-@app.route('') # Fill this in!
-def doggyLatin(name):
-    # This function will take in the name passed
-    # and then use "puppy-latin" to convert it!
-
-    # HINT: Use indexing and concatenation of strings
-    # For Example: "hello"+" world" --> "hello world"
-    pass
+@app.route('/<dogName>')
+def doggyLatin(dogName):
+    lastChar = dogName[-1]
+    if lastChar == 'y':
+        newDog = dogName[:-1] + "iful"
+        return f"Welcome in {newDog}"
+    elif lastChar != 'y':
+        newDog = dogName + "y"
+        return f"Welcome in {newDog}"
 
 if __name__ == '__main__':
-    # Fill me in!
-    pass
+    app.run(debug=True)
