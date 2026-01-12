@@ -20,5 +20,14 @@ def infoTemplate():
     someDictionary = {'key': 'val'}
     return render_template('index.html', vars=someBackendVar, vars2 = someBackendList, vars3 = someDictionary)
 
+@app.route('/home') # Static route w/template
+def home():
+    return render_template('home.html')
+
+@app.route('/user/<user>') # Static route w/template
+def user(user):
+    return render_template('user.html', name=user)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
