@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route('/')
@@ -28,6 +28,22 @@ def home():
 def user(user):
     return render_template('user.html', name=user)
 
+@app.route('/form')
+def simpleForm():
+    return render_template('signup.html')
+
+@app.route('/signup_form')
+def signup_form():
+    return render_template('signupform.html')
+
+@app.route('/thanks') # Request example
+def thank_you():
+    name = request.args.get('name')
+    return render_template('thankyou.html', name=name)
+
+@app.errorhandler(404) # Sample error handler
+def page_not_found(e):
+    return render_template('404.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

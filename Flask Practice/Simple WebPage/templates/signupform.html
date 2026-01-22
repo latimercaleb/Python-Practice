@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+{%block content%}
+
+<h3>Sign up page!</h3>
+<p>Fill out the form</p>
+<form action="{{url_for('thank_you')}}">
+    <span>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name"/>
+    </span>
+    <span>
+        <input type="submit" name="Submit btn" value="Enter"/>
+    </span>
+</form>
+
+{%endblock%}
