@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>Base HTML Wrapper example</title>
     </head>
     <body>
         <nav>
@@ -9,8 +9,11 @@
             <!--TODO: Test whether or not this is template name or controller name for the route-->
             <!--TODO: Review documentation for url_for -->
             <!--TODO: Update this page set to be foldered and leverage tailwind css-->
-            <!-- <a href="{{url_for('home')}}">Home</a>
-            <a href="{{url_for('user', user='bOB')}}">User</a>  -->
+            {#
+            <a href="{{url_for('home')}}">Home</a>
+            <a href="{{url_for('user', user='bOB')}}">User</a> 
+            #}
+
         </nav>
         {%block content%}
         {%endblock%}

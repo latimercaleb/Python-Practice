@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+{%block content%}
+    <h1>Home page render for form exercise landing screen</h1>
+    <!--Todo: Add form details here-->
+    <p>Please enter a valid user name containing 1 uppercase, 1 lower case & ending with a number</p>
+    <form action="{{url_for('report')}}">
+        <span>
+            <label for="userName">User Name:</label>
+            <input id="userName" type="text" name="userName"/>
+        </span>
+        <span>
+            <input type="submit" name="Submit btn" value="Enter"/>
+        </span>
+    </form>
+{%endblock%}
