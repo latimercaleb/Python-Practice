@@ -4,9 +4,7 @@
 # Start this after restyling with tailwind and use tailwind in this practice
 
 
-# Steps
-# Impl sln
-# Test sln 
+# Steps 
 # Refine solution using tailwind
 # Double back across all old code using tailwind
 
