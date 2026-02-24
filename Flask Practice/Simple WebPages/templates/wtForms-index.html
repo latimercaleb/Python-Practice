@@ -1,0 +1,14 @@
+<p>
+    {%if job%}
+    The job you entered is {{job}} & your role is {{role}}
+    Update it below:
+    {%else %}
+    Enter your job: 
+    {%endif%}
+</p>
+<form method="POST">
+{{form.hidden_tag()}}
+{{form.job.label}} {{form.job()}}
+{{form.role.label}} {{form.role()}}
+{{form.submit()}}
+</form>
