@@ -1,13 +1,11 @@
-# Set up your imports here!
+
 from flask import Flask, render_template
 app = Flask(__name__)
 
 
 
-@app.route('/') # Fill this in!
+@app.route('/') 
 def landing():
-    # Welcome Page
-    # Create a generic welcome page.
     return '<h1>Welcome Page</h1>'
 
 @app.route('/<dogName>')
