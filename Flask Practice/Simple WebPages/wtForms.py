@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for
+from flask import Flask, render_template, session, redirect, url_for, flash
 from flask_wtf import FlaskForm
 from wtforms import ( StringField, 
                      SubmitField, 
@@ -49,6 +49,8 @@ def statForm():
         session['magic'] = stats.magic.data
         session['enchantment_type'] = stats.enchantment_type.data
         session['comments'] = stats.comments.data
+        flash('Dubious')
+        flash('Wongus')
         return redirect(url_for('exit'))
     return render_template('wtForms-index.html', form=stats)
 

@@ -6,3 +6,9 @@
     <li>{{session['enchantment_type']}}</li>
     <li>{{session['comments']}}</li>
 </ul>
+
+<div>
+    {%for message in get_flashed_messages()%}
+        <span>{{message}}</span>
+    {%endfor%}
+</div>
