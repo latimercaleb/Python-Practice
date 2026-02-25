@@ -7,7 +7,7 @@ from wtforms import ( StringField,
                      RadioField, 
                      SelectField, 
                      TextAreaField, 
-                     TextField )
+                     TelField )
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
@@ -43,14 +43,14 @@ def home():
 @app.route("/stats", methods=['GET', 'POST'])
 def statForm():
     stats = StatForm()
-    if stats.validate_on_submit(): # stats.strength.data?
-        session['strength'] = stats.data.strength
-        session['dex'] = stats.data.dex
-        session['magic'] = stats.data.magic
-        session['enchantment_type'] = stats.data.enchantment_type
-        session['comments'] = stats.data.comments
+    if stats.validate_on_submit():
+        session['strength'] = stats.strength.data
+        session['dex'] = stats.dex.data
+        session['magic'] = stats.magic.data
+        session['enchantment_type'] = stats.enchantment_type.data
+        session['comments'] = stats.comments.data
         return redirect(url_for('exit'))
-    return render_template('wtForms-index', form=stats)
+    return render_template('wtForms-index.html', form=stats)
 
 @app.route("/thankYou")
 def exit():
