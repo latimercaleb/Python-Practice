@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///' + os.path.join(base_dir, 'ra
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 
 db = SQLAlchemy(app)
-Migrate(app,db) # Fix locally, need path adjustments
+Migrate(app,db) 
 
 # Main Unit
 class Raider(db.Model):

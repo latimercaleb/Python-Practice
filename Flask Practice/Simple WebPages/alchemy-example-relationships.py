@@ -22,14 +22,18 @@ with app.app_context():
     pld = Raider.query.get(4)
     print(sam)
 
-# 2 Create Guild & Master
+# 2 Create Guild & Master, check representations
     sees = Guild('Sees', 4)
     sees.guild_member.add(element)
     print(sees)
     sees.show_member_names()
 
-    
+
     # db.session.add_all([sam,bar,mag,pld])
     # db.session.commit()
 
 # 3 Add master & members to guild
+
+# 4 Check and retrieve details
+
+# TODO Finish integrating each model and testing it to make sure it's correct
