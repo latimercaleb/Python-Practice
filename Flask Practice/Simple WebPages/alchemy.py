@@ -39,7 +39,7 @@ class Guild(db.Model):
     raider_count = db.Column(db.Integer)
     # One to many
     # One guild to many X
-    guild_member = db.relationship('Raider', backref='Guild', lazy='dynamic')
+    guild_member = db.relationship('Raider', backref='Guild', lazy='joined')
     # One to one
     # One guild to one master
     guild_master = db.relationship('Master', backref='Guild', uselist=False)
@@ -50,12 +50,12 @@ class Guild(db.Model):
 
     def __repr__(self): 
         if self.raider_count > 0:
-            return f"Guild is {self.name} with a member count of {self.raider_count}"
+            return f"Guild is {self.name} with a member count of {self.raider_count} under {self.guild_master.name}"
         else: 
             return f"Guild is {self.name} with no members under {self.guild_master}"
     
     def show_member_names(self):
-        print ('The members of {self.name} are: ')
+        print (f'The members of {self.name} are: ')
         for member in self.guild_member:
             print (member.name)
     
@@ -70,3 +70,6 @@ class Master(db.Model):
     def __init__(self, name, guild_id):
         self.name = name
         self.guild_id = guild_id
+
+    def __repr__(self):
+        return f"Guild Master of {self.guild_id} named {self.name}"

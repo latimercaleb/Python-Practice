@@ -6,34 +6,38 @@ with app.app_context():
     # 1 guild
 
 # 1 Create members & Check
-    # sam = Raider('Samurai', 'Sam', 84, 1)
-    # bar = Raider('Bard', 'Bart', 19, 1)
-    # mag = Raider('Mage', 'Mill', 142, 1)
-    # pld = Raider('Paladin', 'Paz', 3, 1)
+    sam = Raider('Samurai', 'Sam', 84, 1)
+    bar = Raider('Bard', 'Bart', 19, 1)
+    mag = Raider('Mage', 'Mill', 142, 1)
+    pld = Raider('Paladin', 'Paz', 3, 1)
 
-    # db.session.add_all([sam,bar,mag,pld])
-    # db.session.commit()
+    db.session.add_all([sam,bar,mag,pld])
+    db.session.commit()
 
     print(Raider.query.all())
 
     sam = Raider.query.filter_by(name = 'Sam').first()
-    bar = Raider.query.get(2)
-    mag = Raider.query.get(3)
-    pld = Raider.query.get(4)
+    bar = db.session.get(Raider,2)
+    mag = db.session.get(Raider,3)
+    pld = db.session.get(Raider,4)
     print(sam)
 
-# 2 Create Guild & Master, check representations
+# 2 Create Guild & Master, check representations, add master to the guild
+    zero = Master('Zero', 1)
+    zero.guild_id = 1
     sees = Guild('Sees', 4)
-    sees.guild_member.add(element)
-    print(sees)
-    sees.show_member_names()
+    db.session.add_all([sees, zero])
+    db.session.commit()
 
-
-    # db.session.add_all([sam,bar,mag,pld])
-    # db.session.commit()
-
-# 3 Add master & members to guild
-
+# 3 Add members to guild
+    sees = Guild.query.first()
+    print (sees)
+    sees.guild_member.add(sam)
+    sees.guild_member.add(bar)
+    sees.guild_member.add(mag)
+    sees.guild_member.add(pld)
+    db.session.add(sees)
+    db.session.commit()
+    
 # 4 Check and retrieve details
-
-# TODO Finish integrating each model and testing it to make sure it's correct
+sees.show_member_names()
