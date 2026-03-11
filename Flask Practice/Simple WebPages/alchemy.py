@@ -37,11 +37,9 @@ class Guild(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text)
     raider_count = db.Column(db.Integer)
-    # One to many
-    # One guild to many X
+    # One to many: One guild to many Raiders
     guild_member = db.relationship('Raider', backref='Guild', lazy='joined')
-    # One to one
-    # One guild to one master
+    # One to one: One master for the guild
     guild_master = db.relationship('Master', backref='Guild', uselist=False)
 
     def __init__(self, name, raider_count):
