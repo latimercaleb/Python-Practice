@@ -1,12 +1,28 @@
 <!--List members Table: heroes of name, title and id(hero number)-->
 {%extends "base.html"%}
     {%block content%}
-        <div class="card">
+    <div class="card">
         <div class="card-header">
             <p class="card-header-title">Hero Roster</p>
         </div>
         <div class="card-content">
-            <div class="content">
+            <div class="content table-container">
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+                    <thead><tr>
+                        <th>Hero Number</th>
+                        <th>Name</th>
+                        <th>Hero Title</th>
+                    </tr></thead>
+                    <tbody>
+                        {%for hero in heros %}
+                        <tr>
+                            <td>{{hero.id}}</td>
+                            <td>{{hero.name}}</td>
+                            <td>{{hero.title}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
