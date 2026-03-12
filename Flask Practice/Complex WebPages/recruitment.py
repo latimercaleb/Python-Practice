@@ -4,6 +4,11 @@ from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+# Additional reqs
+# Add new model, table and ui screen for a 
+# 
+
+
 # Config
 base_dir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
