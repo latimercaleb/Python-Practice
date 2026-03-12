@@ -5,8 +5,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 # Additional reqs
-# Add new model, table and ui screen for a 
-# 
+# Add new model, table and ui screen for adding an X (call this something)
+# X can take a name and an ID of a raider and connect them
+# Table should render X in conjunction with raiders or None if there is none
+# Use flash to send styled toasts/notifications for new X or new raiders
+# Rules: Work from back to front, no solution help, compare only at the end and test all functionality
 
 
 # Config
