@@ -43,7 +43,7 @@ def recruit():
     return render_template('recruit.html', recruitment_form = recruit)
 
 @app.route('/resign', methods=['GET', 'POST'])
-def remove_hero(): 
+def resign(): 
     resign = ResignForm()
     if resign.validate_on_submit():
         hero_id = resign.id.data
@@ -53,7 +53,7 @@ def remove_hero():
     return render_template('resign.html', resignation_form = resign)
 
 @app.route('/roster')
-def list_roster(): 
+def roster(): 
     hero_roster = Hero.query.all()
     return render_template('roster.html', heroes = hero_roster)
 
