@@ -7,8 +7,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-    <body>
-        <nav></nav>
+    <body class="has-navbar-fixed-top">
+        <nav class="navbar is-fixed-top">
+            <div class="navbar-brand">
+                <span class="navbar-item">Raid Recruitment</span>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                     <a class="navbar-item" href="{{url_for('index')}}"> Home </a> 
+                     <a class="navbar-item" href="{{url_for('index')}}"> Recruit </a>
+                     <a class="navbar-item" href="{{url_for('index')}}"> Resign </a>
+                </div>
+            </div>
+        </nav>
+        In base component
         {%block content%}
         {%endblock%}
     </body>
