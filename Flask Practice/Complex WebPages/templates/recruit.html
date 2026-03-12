@@ -1,5 +1,51 @@
 <!--New recruit-->
 {%extends "base.html"%}
     {%block content%}
-    <h1>Recruit render</h1>
+    <div class="card">
+        <div class="card-header">
+            <p class="card-header-title">Recruitment for Operations</p>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <form >
+                    <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Text input">
+                    </div>
+                    </div>
+                    <div class="field">
+                    <label class="label">Title</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Text input">
+                    </div>
+                    </div>
+                    <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {%endblock%}
+
+<!--ref-->
+<form method="POST">
+    {{form.hidden_tag()}}
+    {{form.strength.label}} {{form.strength()}}
+    <br>
+    {{form.dex.label}} {{form.dex()}}
+    <br>
+    {{form.magic.label}} {{form.magic()}}
+    <br>
+    {{form.enchantment_type.label}} {{form.enchantment_type()}}
+    <br>
+    {{form.comments.label}} {{form.comments()}}
+    <br>
+    {{form.submit()}}
+</form>
