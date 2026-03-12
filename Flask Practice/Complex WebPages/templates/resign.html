@@ -1,5 +1,26 @@
 <!--Remove member-->
 {%extends "base.html"%}
     {%block content%}
-    <h1>Resign render</h1>
+    <div class="card">
+        <div class="card-header">
+            <p class="card-header-title">Retire from Operations</p>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <form method="POST">
+                    {{resignation_form.hidden_tag()}}
+                    <div class="field has-addons">
+                        <label class="label pr-4">{{resignation_form.id.label}}</label>
+                        <div class="control">
+                            {{resignation_form.id(class_="input is-rounded has-text-centered")}}
+                        </div>
+                        <div class="control">
+                            <button class="button is-danger is-light">{{resignation_form.submit.label}}</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 {%endblock%}
