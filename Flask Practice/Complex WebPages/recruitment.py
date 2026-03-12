@@ -56,3 +56,6 @@ def remove_hero():
 def list_roster(): 
     hero_roster = Hero.query.all()
     return render_template('roster.html', heroes = hero_roster)
+
+if __name__ == '__main__':
+    app.run(debug=True)
