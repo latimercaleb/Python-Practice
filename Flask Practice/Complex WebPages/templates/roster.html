@@ -1,5 +1,16 @@
 {%extends "base.html"%}
     {%block content%}
+    <div class="notification">
+        <!-- 
+        #TODO: Implement notification click handler and message + styles for adding & deleting 
+         class = "notification is-success is-light" for pass
+         class = "notification is-warning is-light" for remove
+
+         Resolve err: sqlalchemy.exc.ArgumentError: relationship 'heroes' expects a class or a mapper argument (received: <class 'sqlalchemy.sql.schema.Table'>)
+        -->
+        <button class="delete"></button>
+        Lorem ipsum
+    </div>
     <div class="card">
         <div class="card-header">
             <p class="card-header-title">Hero Roster</p>
@@ -11,6 +22,7 @@
                         <th>Hero Number</th>
                         <th>Name</th>
                         <th>Hero Title</th>
+                        <th>Academy</th>
                     </tr></thead>
                     <tbody>
                         {%for hero in heroes %}
@@ -18,6 +30,8 @@
                             <td>{{hero.id}}</td>
                             <td>{{hero.name}}</td>
                             <td>{{hero.title}}</td>
+                            <!-- If academy render if none render "Freelancer" -->
+                            <td>{{hero.academy.name}}</td>
                         </tr>
                         {%endfor%}
                     </tbody>
