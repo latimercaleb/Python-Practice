@@ -7,16 +7,16 @@ with app.app_context():
     # CRUD
 
     # C
-    # gwil = Raider('Tank', 99)
-    # lola = Raider('Bard', 82)
+    gwil = Raider('Tank', 99)
+    lola = Raider('Bard', 82)
 
-    # db.session.add(gwil)
-    # db.session.add(lola)
-    # db.session.add_all([gwil,lola]) # Example of adding all at once
+    db.session.add(gwil)
+    db.session.add(lola)
+    db.session.add_all([gwil,lola]) # Example of adding all at once
 
-    # db.session.commit() # Saves changes
-    # print(gwil.id)
-    # print(lola.job)
+    db.session.commit() # Saves changes
+    print(gwil.id)
+    print(lola.job)
 
      # R
     all_raiders = Raider.query.all()

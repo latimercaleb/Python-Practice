@@ -1,16 +1,21 @@
 {%extends "base.html"%}
     {%block content%}
-    <div class="notification">
-        <!-- 
-        #TODO: Implement notification click handler and message + styles for adding & deleting 
-         class = "notification is-success is-light" for pass
-         class = "notification is-warning is-light" for remove
-
-         Resolve err: sqlalchemy.exc.ArgumentError: relationship 'heroes' expects a class or a mapper argument (received: <class 'sqlalchemy.sql.schema.Table'>)
-        -->
+    {%if session['new_recruit'] == True %}
+    <div class="notification is-success is-light">
         <button class="delete"></button>
-        Lorem ipsum
+        {%for mms in get_flashed_messages()%}
+            <span><i>{{mms}}</i></span>
+        {%endfor%}
     </div>
+    {%elif session['new_recruit'] == False %}
+    <div class="notification is-warning is-light">
+        <button class="delete"></button>
+        {%for mms in get_flashed_messages()%}
+            <span><i>{{mms}}</i></span>
+        {%endfor%}
+    </div>
+    {% endif %}
+
     <div class="card">
         <div class="card-header">
             <p class="card-header-title">Hero Roster</p>
@@ -30,8 +35,7 @@
                             <td>{{hero.id}}</td>
                             <td>{{hero.name}}</td>
                             <td>{{hero.title}}</td>
-                            <!-- If academy render if none render "Freelancer" -->
-                            <td>{{hero.academy.name}}</td>
+                            <td>{{hero.academy.name | default('Freelancer')}}</td>
                         </tr>
                         {%endfor%}
                     </tbody>

@@ -1,16 +1,8 @@
 import os 
 from forms import RecruitForm, ResignForm, AcademyRegistrationForm
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash, session, get_flashed_messages
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-
-# Additional reqs
-# Add new model, table and ui screen for adding an X (call this something) => Academy (if no school then freelancer)
-# X can take a name and an ID of a raider and connect them
-# Table should render X in conjunction with raiders or None if there is none
-# Use flash to send styled toasts/notifications for new X or new raiders
-# Rules: Work from back to front, no solution help, compare only at the end and test all functionality
-
 
 # Config
 base_dir = os.path.abspath(os.path.dirname(__file__))
@@ -25,9 +17,10 @@ Migrate(app,db)
 # Model
 class Hero(db.Model): 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Text)
+    name = db.Column(db.Text) 
     title = db.Column(db.Text)
-    academy_key = db.Column(db.Integer, db.ForeignKey('academy.id'))
+    # academy_key = db.Column(db.Integer, db.ForeignKey('academy.id'))
+    academy = db.relationship("Academy", backref='hero', uselist=False)
     def __init__(self, name, title):
         self.name = name
         self.title = title
@@ -36,20 +29,23 @@ class Hero(db.Model):
         return self.academy_key
 
     def __repr__(self):
-        return f"{self.name} the {self.title}! Hero #{self.id}! From {self.get_school()}"
+        if self.academy:
+            return f"{self.name} the {self.title}! Hero #{self.id}! From {self.academy.name}"
+        else: 
+            return f"{self.name} the {self.title}! Hero #{self.id}! A Freelance warrior"
     
 
 class Academy(db.Model): 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text)
-    heroes = db.relationship("hero", backref='academy', lazy='joined')
-    
+    hero_id = db.Column(db.Integer, db.ForeignKey('hero.id'))
+
     def __init__(self, name, hero_id):
         self.name = name
         self.hero_id = hero_id
     
     def __repr__(self):
-        return f"{self.name} home of {self.heroes}"
+        return f"{self.name}"
     
 # Controller
 @app.route('/')
@@ -63,6 +59,8 @@ def recruit():
         new_recruit = Hero(recruit.name.data, recruit.title.data)
         db.session.add(new_recruit)
         db.session.commit()
+        flash(f"New recruit: {new_recruit.name} added to roster!")
+        session['new_recruit'] = True
         return redirect(url_for('roster'))
     return render_template('recruit.html', recruitment_form = recruit)
 
@@ -70,9 +68,12 @@ def recruit():
 def academy_signup():
     academy_form = AcademyRegistrationForm()
     if academy_form.validate_on_submit():
-        new_school = Academy(academy_form.name.data, academy_form.disciple_id.data)
+        hero_id = academy_form.disciple_id.data
+        new_school = Academy(academy_form.name.data, hero_id)
         db.session.add(new_school)
         db.session.commit()
+        flash(f"New academy: {new_school.name} added to roster!")
+        session['new_recruit'] = True
         return redirect(url_for('roster'))
     return render_template('academy_registration.html', academy = academy_form)
 
@@ -81,17 +82,21 @@ def resign():
     resign = ResignForm()
     if resign.validate_on_submit():
         hero_id = resign.id.data
-        Hero.query.filter_by(id=hero_id).delete()
+        retired_hero = Hero.query.filter_by(id=hero_id).first()
+        flash(f"Former Hero: {retired_hero.name} removed from roster!")
+        db.session.delete(retired_hero)
         db.session.commit()
+        session['new_recruit'] = False
         return redirect(url_for('roster'))
     return render_template('resign.html', resignation_form = resign)
 
 @app.route('/roster')
-def roster(): 
+def roster():
     hero_roster = Hero.query.all()
-    academy = Academy.query.all()
-    print(hero_roster)
-    print(academy)
+    messageList = get_flashed_messages()
+    if not messageList:
+        session.clear()
+
     return render_template('roster.html', heroes = hero_roster)
 
 if __name__ == '__main__':

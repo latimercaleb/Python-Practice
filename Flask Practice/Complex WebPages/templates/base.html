@@ -17,6 +17,7 @@
                      <a class="navbar-item" href="{{url_for('recruit')}}"> Recruit </a>
                      <a class="navbar-item" href="{{url_for('resign')}}"> Resign </a>
                      <a class="navbar-item" href="{{url_for('academy_signup')}}"> Academy </a>
+                     <a class="navbar-item" href="{{url_for('roster')}}"> View Roster </a>
                 </div>
             </div>
         </nav>
@@ -27,4 +28,15 @@
             </div>
         </section>
     </body>
+    <script >
+        document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                const $notification = $delete.parentNode;
+
+                $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+                });
+            });
+        });
+    </script>
 </html>

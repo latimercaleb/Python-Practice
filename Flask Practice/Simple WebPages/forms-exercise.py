@@ -1,24 +1,11 @@
-# Make a username requirements check (Template practice)
-# Take a user name, check and see if it passes 3 requirements(one lowercase letter, one uppercase letter, must end in a number)
-# Needs navbar with home button, landing page redirects to report page after submitting form. Report page indicates if username is valid or not, if it is invalid it should explain why
-# Start this after restyling with tailwind and use tailwind in this practice
-
-
-# Steps 
-# Refine solution using tailwind
-# Double back across all old code using tailwind
-
-
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-
-
-@app.route('/') # Land at form-exercise-home.html, prototype out template, design form, handle submission event
+@app.route('/') 
 def pageOne():
     return render_template('form-exercise-home.html')
 
-@app.route('/report') # Land at form-exercise-report.html, parse through user_report(might need request), check for  3 requirements(one lowercase letter, one uppercase letter, must end in a number), return success or error, if error return useful error message
+@app.route('/report')
 def report():
     errorList = []
     userName = request.args.get('userName')

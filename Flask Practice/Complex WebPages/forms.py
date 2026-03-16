@@ -13,4 +13,4 @@ class ResignForm(FlaskForm):
 class AcademyRegistrationForm(FlaskForm):
     name = StringField("Your School Name: ")
     disciple_id = IntegerField("Your Hero ID to Register: ")
-    submit = SubmitField("Complete Resignation")
+    submit = SubmitField("Complete Academy Registration")
