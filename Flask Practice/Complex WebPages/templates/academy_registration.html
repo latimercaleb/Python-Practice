@@ -1,0 +1,30 @@
+{%extends "base.html"%}
+    {%block content%}
+    <div class="card">
+        <div class="card-header">
+            <p class="card-header-title">Recruitment for Academies</p>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <form method="POST">
+                    {{academy.hidden_tag()}}
+                    <div class="field">
+                        <label class="label">{{academy.name.label}}</label>
+                        <div class="control">
+                            {{academy.name(class_="input")}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">{{academy.disciple_id.label}}</label>
+                        <div class="control">
+                            {{academy.disciple_id(class_="input")}}
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button class="button is-info is-light">{{academy.submit.label}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{%endblock%}

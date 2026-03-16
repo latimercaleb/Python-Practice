@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="p-3 mx-8">
+    <h1 class="text-2xl pb-3">Report</h1>
+    <p>Entered User Name: <b>{{name}}</b></p>
+    {%if validUsr%}
+        <p class="text-emerald-800">Your username is valid!</p>
+    {% else %}
+        <p class="text-rose-700">Your username is invalid for the following reasons</p>
+        <div class="rounded-sm border-2 border-double border-red-900 p-2 pl-4 mt-3">
+        <ul class="list-decimal p-3">
+            {% for error in usrNameErrors %}
+                <li>{{error}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {%endif%}
+</div>
+{%endblock%}

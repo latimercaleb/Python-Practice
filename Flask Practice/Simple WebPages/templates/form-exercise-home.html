@@ -1,0 +1,20 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="p-4 grid grid-cols-4 gap-2">
+  <div class="col-span-2">
+    <h1 class="text-2xl p-3">Form Exercise</h1>
+    <p class="text-base/7 font-semibold text-black"> Please enter a valid user name containing 1 uppercase, 1 lower case & ending with a number</p>
+  </div>
+  <div class="col-span-2">
+    <form action="{{url_for('report')}}">
+      <div class="sm:col-span-4">
+        <label for="userName" class="block text-sm/6 font-medium text-green-700">Username:</label>
+        <input id="userName" type="text" name="userName" placeholder="User name here" class=" min-w-4 py-1.5 pr-3 pl-1 text-base sm:text-sm/6 border-4 rounded-xl border-green-300" />
+      </div>
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+        <button type="submit" class="rounded-sm bg-indigo-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Enter</button>
+      </div>
+    </form>
+  </div>
+</div>
+{%endblock%}

@@ -8,4 +8,8 @@ Need to pick up python learning & projects
 - Pick up flask 
 - Pick back up with fast api
 - Practice MCP
-- Practice for interviews
+- Practice for interview
+
+### Side list
+- Finish up code along exercise
+- Start templates

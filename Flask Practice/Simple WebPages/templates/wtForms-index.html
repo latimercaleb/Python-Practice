@@ -1,0 +1,32 @@
+{# Form 1
+<p>
+    {%if job%}
+    The job you entered is {{job}} & your role is {{role}}
+    Update it below:
+    {%else %}
+    Enter your job: 
+    {%endif%}
+</p>
+<form method="POST">
+{{form.hidden_tag()}}
+{{form.job.label}} {{form.job()}}
+{{form.role.label}} {{form.role()}}
+{{form.submit()}}
+</form>
+ #}
+<hr>
+<!--Form 2-->
+<form method="POST">
+    {{form.hidden_tag()}}
+    {{form.strength.label}} {{form.strength()}}
+    <br>
+    {{form.dex.label}} {{form.dex()}}
+    <br>
+    {{form.magic.label}} {{form.magic()}}
+    <br>
+    {{form.enchantment_type.label}} {{form.enchantment_type()}}
+    <br>
+    {{form.comments.label}} {{form.comments()}}
+    <br>
+    {{form.submit()}}
+</form>

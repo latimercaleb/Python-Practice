@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index Template</title>
+    </head>
+    <body>
+        Template referenced, view layering is done in jinja via template inheritance
+        <p>{{vars}}</p>
+        <h3>Can break this up if needed</h3>
+        <!--Loop example-->
+        <p>{{vars2}}</p>
+        <ul>
+        {% for itm in vars2 %}
+            {%if itm == 'o' %}
+            <li><b>{{itm}}</b></li>
+            {% else %}
+            <li>{{itm}}</li>
+            {%endif%}
+        {% endfor %}
+        </ul>
+        <p>{{vars2[0]}}</p>
+        <p>{{vars3}}</p>
+        <!--Parsing a dictionary-->
+        <p>{{vars3['key']}}</p>
+        <div>
+            <h4>Filters practice</h4>
+        </div>
+        <div>
+            <h4>View  practice</h4>
+        </div>
+    </body>
+</html>

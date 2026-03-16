@@ -1,0 +1,46 @@
+{%extends "base.html"%}
+    {%block content%}
+    {%if session['new_recruit'] == True %}
+    <div class="notification is-success is-light">
+        <button class="delete"></button>
+        {%for mms in get_flashed_messages()%}
+            <span><i>{{mms}}</i></span>
+        {%endfor%}
+    </div>
+    {%elif session['new_recruit'] == False %}
+    <div class="notification is-warning is-light">
+        <button class="delete"></button>
+        {%for mms in get_flashed_messages()%}
+            <span><i>{{mms}}</i></span>
+        {%endfor%}
+    </div>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-header">
+            <p class="card-header-title">Hero Roster</p>
+        </div>
+        <div class="card-content">
+            <div class="content table-container">
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+                    <thead><tr>
+                        <th>Hero Number</th>
+                        <th>Name</th>
+                        <th>Hero Title</th>
+                        <th>Academy</th>
+                    </tr></thead>
+                    <tbody>
+                        {%for hero in heroes %}
+                        <tr>
+                            <td>{{hero.id}}</td>
+                            <td>{{hero.name}}</td>
+                            <td>{{hero.title}}</td>
+                            <td>{{hero.academy.name | default('Freelancer')}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{%endblock%}
