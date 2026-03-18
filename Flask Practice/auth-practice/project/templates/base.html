@@ -14,10 +14,12 @@
             <div class="navbar-menu">
                 <div class="navbar-start">
                      <a class="navbar-item" href="{{url_for('index')}}"> Home </a> 
-                     <a class="navbar-item" href="{{url_for('recruit')}}"> Recruit </a>
-                     <a class="navbar-item" href="{{url_for('resign')}}"> Resign </a>
-                     <a class="navbar-item" href="{{url_for('academy_signup')}}"> Academy </a>
-                     <a class="navbar-item" href="{{url_for('roster')}}"> View Roster </a>
+                     {% if current_user.is_authenticated %}
+                        <a class="navbar-item" href="{{url_for('exit')}}"> Logout </a>
+                     {% else %}
+                        <a class="navbar-item" href="{{url_for('login')}}"> Login </a>
+                        <a class="navbar-item" href="{{url_for('sign_up')}}"> Register </a>
+                     {% endif %}
                 </div>
             </div>
         </nav>
