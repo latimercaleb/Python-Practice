@@ -8,6 +8,7 @@ app=Flask(__name__)
 app.config['SECRET_KEY'] = 'no_secrets_today'
 app.config['GOOGLE_OAUTH_CLIENT_ID'] = 'your-client-id.apps.googleusercontent.com'
 
+# TODO: Need to setup client & secret later
 blueprint = make_google_blueprint(client_id='', client_secret='', offline=True, scope=['profile', 'email']) # This creates a blueprint for Google OAuth, you need to provide your client id and secret here
 app.register_blueprint(blueprint, url_prefix='/login') # This registers the blueprint with the Flask app, the url_prefix is where the OAuth routes will be available
 
@@ -26,4 +27,8 @@ def login():
 
 @app.route('/welcome')
 def welcome():
-    return render_template('welcome.html')
+    # TODO: Integrate try/catch logic here to handle cases where the user is not authorized or there is an error with the Google API request
+    response = google.get('/oauth2/v2/userinfo') # If authorized, make a request to the Google API to get the user's information
+    assert response.ok, response.text # Check if the response is successful
+    email = response.json()['email'] # Get the user's email from the response
+    return render_template('welcome.html', email=email) # Render the welcome page with the user's email
