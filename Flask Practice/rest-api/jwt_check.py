@@ -9,13 +9,13 @@ users = [
 username_tbl = { u.username: u for u in users }
 userid_tbl = { u.id: u for u in users }
 
-def auth(username, password): # Might need to rename to authenticate to work with flask-jwt-extended
+def authenticate(username, password): # Might need to rename to authenticate to work with flask-jwt-extended
     user = username_tbl.get(username, None) # Use get instead of a call to avoid KeyError if username not found
     if user and user.password == password:
         return user
     else:
         return None
 
-def identify(payload):# Might need to rename to identity to work with flask-jwt-extended
-    u_id = payload['identity'] # This is how flask-jwt-extended passes the identity of the user in the payload of the JWT
-    return userid_tbl.get(u_id, None)
+# def identify(payload):# Might need to rename to identity to work with flask-jwt-extended
+#     u_id = payload['identity'] # This is how flask-jwt-extended passes the identity of the user in the payload of the JWT
+#     return userid_tbl.get(u_id, None)
