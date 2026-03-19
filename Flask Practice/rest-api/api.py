@@ -75,7 +75,7 @@ class Login(Resource):
         # Later, you'll use: user = User.query.filter_by(username=username).first()
         if user:
             # This is the magic function that creates the token
-            access_token = create_access_token(identity=str(user.id))
+            access_token = create_access_token(identity=str(user.id)) # TODO: Rework this to just use the username, its alot more readable and a good point of return-refactorting for active recall
             return {'access_token': access_token}, 200
         
         return {"message": "Invalid credentials"}, 401

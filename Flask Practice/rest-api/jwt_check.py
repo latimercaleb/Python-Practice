@@ -16,6 +16,7 @@ def authenticate(username, password): # Might need to rename to authenticate to 
     else:
         return None
 
-# def identify(payload):# Might need to rename to identity to work with flask-jwt-extended
+# Flask extended doesnt need this
+# def identify(payload):# Might need to rename to identity to work with flask-jwt
 #     u_id = payload['identity'] # This is how flask-jwt-extended passes the identity of the user in the payload of the JWT
 #     return userid_tbl.get(u_id, None)
