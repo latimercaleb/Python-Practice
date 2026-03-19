@@ -5,6 +5,8 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 api = Api(app)
 
+creators = []
+
 class Greetings(Resource):
     def get(self):
         return jsonify({'message': 'Hello, World!'})
@@ -15,6 +17,14 @@ class Greetings(Resource):
         return jsonify({'message': f'Hello, {name}!'})
 
 api.add_resource(Greetings, '/')
+
+class Creator(Resource):
+    def get(self):
+        pass
+
+    def post(self):
+        pass
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
