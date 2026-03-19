@@ -24,7 +24,7 @@ class Writer(Resource):
         for writer in writers:
             if writer['name'] == name:
                 return writer
-        return {'name': None}
+        return {'name': None}, 404 # Implicitly returns a tuple
         #return jsonify({'error': 'Writer not found'}), 404
 
     def post(self, name): # Take thing, write thing to store, then return that thing

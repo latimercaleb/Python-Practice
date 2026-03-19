@@ -10,6 +10,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # Add flash messages to templates 
 # Experiement with redirect ideas 
 # Setup 2 users and login & out of each to test functionality
+# Pracice form validation error usage, show validity states and try for failed submission toasts
+# Implement try & retry logic
 
 @app.route('/')
 def index():
