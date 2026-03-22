@@ -2,12 +2,21 @@ from flask import Flask, render_template, request, redirect, url_for
 import stripe
 
 app = Flask(__name__)
-public_key= "Find me in the docs"
+
+processor_key= "Find me in the docs"
 stripe.api_key = "Find me in the docs"
+
+# TODO:
+"""
+- Fix build issues, rename routes 
+- Go over stripe docs & grab tests keys 
+- Adjust templates, style them a bit better no base template, just 2 pages custom
+- make an error page and try that as well
+"""
 
 @app.route('/')
 def home():
-    render_template('home.html', public_key=public_key)
+    render_template('home.html', public_key=processor_key)
 
 @app.route('/donated')
 def donated():
