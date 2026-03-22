@@ -13,3 +13,26 @@ def home():
 def donated():
     return render_template('donated.html')
 
+@app.route('/charge', methods=['POST'])
+def charge():
+    # Transaction amount
+    transaction_total = 250 # Amount in cents, so this is $2.50
+
+    # Customer details
+    consumer = stripe.Customer.create(
+        email=request.form['stripeEmail'],
+        source=request.form['stripeToken']
+    )
+
+    #Payment data
+    charge = stripe.Charge.create(
+        customer=consumer.id,
+        amount=transaction_total,
+        currency='usd',
+        description='Flask Charge'
+    )
+
+    return redirect(url_for('donated'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
