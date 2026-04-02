@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sample Stripe</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">   
+    <body class="has-navbar-fixed-top">
+        <nav class="navbar is-fixed-top">
+            <div class="navbar-brand">
+                <span class="navbar-item">Donations</span>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                     <a class="navbar-item" href="{{url_for('index')}}"> Home </a> 
+                </div>
+            </div>
+        </nav>
+        <section class="section">
+            <div class="container">
+                <div class="card">
+                   <h1>Thank you!</h1>
+                </div>
+            </div>
+            </div>
+        </section>
+    </body>
+    <script >
+        document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                const $notification = $delete.parentNode;
+
+                $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+                });
+            });
+        });
+    </script>
+</html>
+
+<!-- 
+Form snippet for reference:
+{{recruitment_form.hidden_tag()}}
+                        <div class="field">
+                            <label class="label">{{recruitment_form.name.label}}</label>
+                            <div class="control">
+                                {{recruitment_form.name(class_="input")}}
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">{{recruitment_form.title.label}}</label>
+                            <div class="control">
+                                {{recruitment_form.title(class_="input")}}
+                            </div>
+                        </div>
+                        <div class="control">
+                            <button class="button is-info is-light">Submit</button>
+                        </div>
+-->

@@ -1,0 +1,14 @@
+{%extends "base.html"%}
+    {%block content%}
+    <div class="card">
+        <div class="card-content">
+            <div class="content">
+                {% if current_user.is_authenticated %}
+                    Welcome back, {{current_user.username}}!
+                {% else %}
+                     Welcome to the Authentication Practice App! Landing page for authentication practice app. Register, Login, Logout here!
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{%endblock%}

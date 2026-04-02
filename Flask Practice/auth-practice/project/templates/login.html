@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+    {%block content%}
+    <div class="card">
+        <div class="card-header">
+            <p class="card-header-title">Login</p>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <form method="POST">
+                    {{login_form.hidden_tag()}}
+                    <div class="field">
+                        <label class="label">{{login_form.email.label}}</label>
+                        <div class="control has-icons-left">
+                            {{login_form.email(class_="input is-medium is-rounded")}}
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">{{login_form.password.label}}</label>
+                        <div class="control has-icons-left">
+                            {{login_form.password(class_="input is-medium is-rounded")}}
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button class="button is-info is-light">{{login_form.submit.label}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{%endblock%}
